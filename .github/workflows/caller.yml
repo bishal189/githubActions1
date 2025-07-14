@@ -10,3 +10,5 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       name: bishalmurmu
+    secrets:
+      MY_SECRET: This  is secrete for now

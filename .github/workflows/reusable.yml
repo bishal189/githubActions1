@@ -6,6 +6,9 @@ on:
       name:
         required: true
         type: string
+    secrets:
+      MY_SECRET:
+        required: true
 
 jobs:
   greet:
@@ -13,3 +16,6 @@ jobs:
     steps:
       - name: Say Hello
         run: echo "Hello, ${{ inputs.name }}!"
+      - name: Print secrere
+        run: |
+          echo "Secret: ${{ secrets.MY_SECRET }}"
