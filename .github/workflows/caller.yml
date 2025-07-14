@@ -8,3 +8,5 @@ on:
 jobs:
   call-reusable:
     uses: ./.github/workflows/reusable.yml
+    with:
+      name: bishalmurmu
