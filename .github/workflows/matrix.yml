@@ -10,6 +10,10 @@ jobs:
     strategy:
       matrix:
         node-version: [14, 16, 18]
+        include:
+          - node-version: 19
+        exclude:
+          - node-version: 14
 
     name: Test on Node.js ${{ matrix.node-version }}
     steps:
