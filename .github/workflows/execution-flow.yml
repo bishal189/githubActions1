@@ -76,3 +76,10 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
+  report:
+    needs: deploy
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: run the echo command
+        run: echo "hello world..."
