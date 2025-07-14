@@ -12,3 +12,9 @@ jobs:
       name: bishalmurmu
     secrets:
       MY_SECRET: This  is secrete for now
+
+  print:
+    runs-on: ubuntu-latest
+    needs: call
+    steps:
+      - run: echo "${{ needs.call-reusable.outputs.message }}"

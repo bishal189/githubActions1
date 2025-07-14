@@ -9,13 +9,21 @@ on:
     secrets:
       MY_SECRET:
         required: true
+    outputs:
+      message:
+        value: ${{ jobs.greet.outputs.result }}
 
 jobs:
   greet:
     runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.say.outputs.msg }}
     steps:
       - name: Say Hello
         run: echo "Hello, ${{ inputs.name }}!"
       - name: Print secrere
         run: |
           echo "Secret: ${{ secrets.MY_SECRET }}"
+      - name: returning output
+        id: say
+        run: echo "msg=Hello, ${{ inputs.name }}!" >> $GITHUB_OUTPUT
